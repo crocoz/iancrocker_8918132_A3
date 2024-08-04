@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assessment 3 - COMP804</title>
+</head>
+    <script>
+        function selectAnimal(animal){
+
+            // Remove highlight class from all buttons
+            document.querySelectorAll('.animal-button').forEach(button => {
+                button.classList.remove('highlight');
+            });
+
+            // Add highlight class to clicked button
+            document.getElementById(animal).classList.add('highlight');
+
+            //Set the values of the fields to be displayed
+            document.getElementById('textField').value = 'User clicks ' + animal;
+            document.getElementById('animalMessage').innerHTML = animal + ' is clicked';
+            document.getElementById('imageContainer').src = animal + '.jpg';
+        }
+    </script>
+    <style>
+        /* General styling for the webpage */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        a   {
+            display: block;
+            padding: 10px 0px 0px 0px;
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for Task 1 */
+        .task-text {
+            font-family: Arial, sans-serif;
+            color: navy;
+        }
+        #headerBox {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+            background-color: lightblue;
+            width: 800px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: navy;
+            border-radius: 10px;
+        }
+
+        /* Styling for Task 2
+            Where possible I have used the styles, colours and fonts from the Uni website
+            as marked */
+        #keyDatesTable {
+            width: 80%;
+            border-collapse: collapse;
+            //margin: 20px auto;
+            font-family: Montserrat, Verdana, Geneva, sans-serif; /* from uni website */
+            color: navy;
+        }
+        #keyDatesTable a {
+            color: navy;
+        }
+        #keyDatesTable th, td {
+            border: 1px solid #e6e6e6;
+            padding: 10px;
+            text-align: left;
+            width: 75%; /* from uni website */
+        }
+        #keyDatesTable th {
+            color: white;
+            background-color: #001641; /* from uni website */
+            font-weight: normal;
+        }
+        #keyDatesTable tr:nth-child(odd) {
+            background-color: white;
+        }
+        #keyDatesTable tr:nth-child(even) {
+            background-color: #e6e6e6; /* from uni website */
+        }
+        #keyDatesTable ul {
+            padding-left: 20px;
+        }
+
+        /* Styling for Task 3 */
+        #webAttack {
+            border-collapse: collapse;
+            font-size: 14px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+        }
+        #webAttack th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #webAttack th {
+            background-color: navy;
+            color: white;
+        }
+        #webAttack tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #webAttack img {
+            width: 150px; /* Set a consistent width for images */
+            height: auto;
+            display: block;
+            padding: 10px 0px 0px 0px;
+        }
+        #webAttack .col-name {
+            width: 30%;
+        }
+
+        /* Styling for Task 4 */
+        .highlight {
+            border: 2px solid black;
+        }
+        #imageContainer {
+            width: 400px;
+        }
+        input {
+            display: block;
+            margin: 10px 0px 0px 0px;
+        }
+        span {
+            display: block;
+            padding: 10px 0px 0px 0px;
+        }
+        img {
+            display: block;
+            padding: 10px 0px 0px 0px;
+        }
+    </style>
+
+
+<body>
+<h1 class="task-text">Task 1</h1>
+<div id="headerBox">
+    <h1>8918132 Ian Crocker</h1>
+    <h2>COMP 804: Web Security</h2>
+    <h3>Assessment Task 3, due 19th August 2024</h3>
+</div>
+
+<h1 class="task-text">Task 2</h1>
+<table id="keyDatesTable">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First day to enroll for re-enrolling(continuing students)</td>
+                <td>21 Nov 2022</td>
+            </tr>
+            <tr>
+                <td>Orientation</td>
+                <td>18 Jul 2023</td>
+
+            </tr>
+            <tr>
+                <td>Lectures Commence (weeks 1-9)</td>
+                <td>24 Jul - 22 Sep 2023</td>
+            </tr>
+            <tr>
+                <td>Last day to enroll / add subjects yourself</td>
+                <td>04 Aug 2023</td>
+            </tr>
+            <tr>
+                <td>Last day to enroll / add subjects with Head of Students approval</td>
+                <td>11 Aug 2023</td>
+            </tr>
+            <tr>
+                <td>CENSUS DATE
+                    <ul>
+                        <li>Fees Due</li>
+                        <li>Last day to withdraw from subjects without paying for them</li>
+                        <li>HECS / FEE HELP debt reporting date</li>
+                        <li>Last day to change HECS / FEE HELP billing option</li>
+                    </ul>
+                    <a href="https://uowedu.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0012659"> Learn more about Census date &gt;</a>
+                </td>
+                <td>31 Aug 2023</td>
+            </tr>
+            <tr>
+                <td>Student Services and Amenities Fees Due</td>
+                <td>01 Sept 2023</td>
+            </tr>
+        </tbody>
+    </table>
+
+<h1 class="task-text">Task 3</h1>
+    <h2>Types of Web Attacks</h2>
+    <h4>About the Sources:</h4>
+        <p>The detail on each web attacks comes from the nonprofit foundation that works to improve the security of software.
+            <a href="https://owasp.org/about/" target="_blank">Open Worldwide Application Security Project (OWASP)</a></p>
+        <p>Images are from various websites and direct links to the source are provided for each image.</p>
+
+    <table id="webAttack">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Web Attack</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-name"><b>SQL Injection</b>
+                    <img src="1_SQL-injection-attack.png">
+                    <a href="https://spanning.com/blog/sql-injection-attacks-web-based-application-security-part-4/" target="_blank">Source: https://spanning.com/blog/sql-injection-attacks-web-based-application-security-part-4/</a>
+                </td>
+                <td>
+                    SQL Injection is a type of attack that allows an attacker to execute arbitrary SQL code on a database. It is commonly used to bypass authentication, retrieve data, or manipulate database records. This type of attack can be mitigated by using prepared statements and parameterized queries.
+                    <a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank">https://owasp.org/www-community/attacks/SQL_Injection</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Cross-Site Scripting (XSS)</b>
+                    <img src="2_cross-site-scripting.webp">
+                    <a href="https://spanning.com/blog/cross-site-scripting-web-based-application-security-part-3/" target="_blank">Source: https://spanning.com/blog/cross-site-scripting-web-based-application-security-part-3/</a>
+                </td>
+                <td>
+                    XSS allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, session tokens, or other sensitive information. There are different types of XSS, including stored, reflected, and DOM-based.
+                    <a href="https://owasp.org/www-community/attacks/xss" target="_blank">https://owasp.org/www-community/attacks/xss</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Cross-Site Request Forgery (CSRF)</b>
+                    <img src="3_csrf-cross-site-request-forgery.png">
+                    <a href="https://www.imperva.com/learn/application-security/csrf-cross-site-request-forgery/" target="_blank">Source: https://www.imperva.com/learn/application-security/csrf-cross-site-request-forgery/</a>
+                </td>
+                <td>
+                    CSRF attacks trick users into performing actions they did not intend to on a web application where they are authenticated. It can lead to unauthorized actions such as changing account settings or making transactions. CSRF tokens and same-site cookies can help prevent these attacks.
+                    <a href="https://owasp.org/www-community/attacks/csrf" target="_blank">https://owasp.org/www-community/attacks/csrf</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Clickjacking</b>
+                    <img src="4_Clickjacking.jpg">
+                    <a href="https://www.keepersecurity.com/blog/2023/07/24/what-is-clickjacking/" target="_blank">Source: https://www.keepersecurity.com/blog/2023/07/24/what-is-clickjacking/</a>
+                </td>
+                <td>
+                    Clickjacking is an attack where an attacker tricks a user into clicking on something different from what the user perceives. This can lead to unwanted actions being taken on a web page. Techniques to prevent clickjacking include using X-Frame-Options and frame-busting scripts.
+                    <a href="https://owasp.org/www-community/attacks/Clickjacking" target="_blank">https://owasp.org/www-community/attacks/Clickjacking</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Denial of Service</b>
+                    <img src="5_DoS.jpg">
+                    <a href="https://www.wallarm.com/what/dos-denial-of-service-attack" target="_blank">Source: https://www.wallarm.com/what/dos-denial-of-service-attack</a>
+                </td>
+                <td>
+                    The Denial of Service (DoS) attack is focused on making a resource (site, application, server) unavailable for the purpose it was designed. There are many ways to make a service unavailable for legitimate users by manipulating network packets, programming, logical, or resources handling vulnerabilities, among others. If a service receives a very large number of requests, it may cease to be available to legitimate users. In the same way, a service may stop if a programming vulnerability is exploited, or the way the service handles resources it uses.
+                    <a href="https://owasp.org/www-community/attacks/Denial_of_Service" target="_blank">https://owasp.org/www-community/attacks/Denial_of_Service</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Command Injection</b>
+                    <img src="6_command_injection.png">
+                    <a href="https://www.hackingarticles.in/comprehensive-guide-on-os-command-injection/" target="_blank">Source: https://www.hackingarticles.in/comprehensive-guide-on-os-command-injection/</a>
+                </td>
+                <td>
+                    Command injection attacks occur when an attacker is able to execute arbitrary commands on a server. This is often possible due to improper handling of user input. Input validation and proper escaping can help prevent command injection vulnerabilities.
+                    <a href="https://owasp.org/www-community/attacks/Command_Injection" target="_blank">https://owasp.org/www-community/attacks/Command_Injection</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Directory Traversal</b>
+                    <img src="7_directory_traversal.webp" target="_blank">
+                    <a href="https://securityboulevard.com/2024/02/directory-traversal-examples-testing-and-prevention/" target="_blank">Source: https://securityboulevard.com/2024/02/directory-traversal-examples-testing-and-prevention/</a>
+                </td>
+                <td>
+                    Directory traversal attacks allow attackers to access files and directories stored outside the web root directory. This can lead to information disclosure or unauthorized access to sensitive files. Input sanitization and proper access controls are key to preventing these attacks.
+                    <a href="https://owasp.org/www-community/attacks/Path_Traversal" target="_blank">https://owasp.org/www-community/attacks/Path_Traversal</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Broken Access Control</b>
+                    <img src="8_broken-access-control.jpg">
+                    <a href="https://cloudkul.com/blog/what-is-broken-authentication-broken-access-control/" target="_blank">Source: https://cloudkul.com/blog/what-is-broken-authentication-broken-access-control/</a>
+                </td>
+                <td>
+                    Access control, sometimes called authorization, is how a web application grants access to content and functions to some users and not others. These checks are performed after authentication, and govern what ‘authorized’ users are allowed to do. Access control sounds like a simple problem but is insidiously difficult to implement correctly. A web application’s access control model is closely tied to the content and functions that the site provides. In addition, the users may fall into a number of groups or roles with different abilities or privileges.
+                    <a href="https://owasp.org/www-community/Broken_Access_Control" target="_blank">https://owasp.org/www-community/Broken_Access_Control</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Password Spraying Attack</b>
+                    <img src="9_passwd-spraying-attack.png">
+                    <a href="https://owasp.org/www-community/attacks/Password_Spraying_Attack" target="_blank">Source: https://owasp.org/www-community/attacks/Password_Spraying_Attack</a>
+                </td>
+                <td>
+                    Password spraying is a type of brute force attack. In this attack, an attacker will brute force logins based on list of usernames with default passwords on the application. For example, an attacker will use one password (say, Secure@123) against many different accounts on the application to avoid account lockouts that would normally occur when brute forcing a single account with many passwords. This attack can be found commonly where the application or admin sets a default password for the new users.
+                    <a href="https://owasp.org/www-community/attacks/Password_Spraying_Attack" target="_blank">https://owasp.org/www-community/attacks/Password_Spraying_Attack</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-name"><b>Man in the browser attack</b>
+                    <img src="10_mitb-attack.webp">
+                    <a href="https://www.zenarmor.com/docs/network-security-tutorials/what-is-man-in-the-browser-attack" target="_blank">Source: https://www.zenarmor.com/docs/network-security-tutorials/what-is-man-in-the-browser-attack</a>
+                </td>
+                <td>
+                    The most common objective of this attack is to cause financial fraud by manipulating transactions of Internet Banking systems, even when other authentication factors are in use.
+
+A previously installed Trojan horse is used to act between the browser and the browser’s security mechanism, sniffing or modifying transactions as they are formed on the browser, but still displaying back the user’s intended transaction.
+
+Normally, the victim must be smart in order to notice a signal of such attack while they are accessing a web application like an internet banking account, even in presence of SSL channels, because all expected controls and security mechanisms are displayed and work normally.
+                    <a href="https://owasp.org/www-community/attacks/Man-in-the-browser_attack" target="_blank">https://owasp.org/www-community/attacks/Man-in-the-browser_attack</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<h1 class="task-text">Task 4</h1>
+    <h2>Animal Selector</h2>
+    <h4>Image Source: From my personal photos</h4>
+
+    <button id="Cat" class="animal-button" onclick="selectAnimal('Cat')">Cat</button>
+    <button id="Dog" class="animal-button" onclick="selectAnimal('Dog')">Dog</button>
+    <button id="Frog" class="animal-button" onclick="selectAnimal('Frog')">Frog</button>
+
+    <input type="text" id="textField" readonly>
+    <span id="animalMessage"></span>
+    <img id="imageContainer" src="">
+
+</body>
+</html>
